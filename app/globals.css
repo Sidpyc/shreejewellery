@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background: rgb(192,182,165);
+  background: linear-gradient(180deg, rgba(192,182,165,1) 0%, rgba(255,255,255,1) 100%);
+  color: var(--text-color);
+}
+
+.footerbg {
+  background: rgb(192,182,165);
+  background: linear-gradient(180deg, rgba(192,182,165,1) 0%, rgba(255,255,255,1) 100%);
+
+
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+.animate-fadeOutDown {
+  animation: fadeOutDown 0.5s ease-in-out forwards;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 25px;
+  margin: 0 auto; /* Center the container */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px; /* Adjust margin to align better within the container */
+}
+
+.col-md-12 {
+  padding: 15px;
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
+
+.section-white {
+  background: #96937D;
+  padding: 70px 15px; /* Add padding on mobile screens */
+}
+
+.director-item {
+  background: #f4f5f6;
+  text-align: center;
+  padding: 20px;
+  width: 100%; /* Ensure full width on smaller screens */
+  max-width: 300px; /* Keep card size on larger screens */
+  margin: 20px auto; /* Add margin for spacing on smaller screens */
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+}
+
+.director-item:hover {
+  background: #3F4020;
+  color: white;
+}
+
+.director-item h3 {
+  margin: 20px 0 1px 0 !important;
+  color: #454545;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+}
+
+.section-subtitle {
+  white-space: pre-line;
+}
+
+.director-item:hover h3 {
+  color: #ddd;
+}
+
+.director-info {
+  display: block;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.director-info p {
+  color: #acacac;
+  font-style: italic;
+}
+
+.director-info::after {
+  background: #96937D;
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  height: 3px;
+  width: 50px;
+  margin-top: -20px;
+}
+
+.director-img {
+  max-width: 100%; /* Ensure full width on smaller screens */
+  width: 220px; /* Maintain image size on larger screens */
+  padding: 6px;
+  border-radius: 18px;
+  margin: 0 auto; /* Center the image */
+}
