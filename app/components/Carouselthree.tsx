@@ -83,8 +83,8 @@ const Carouselthree = () => {
                 </div>
 
                 {/* Description at the bottom */}
-                <div className="absolute bottom-4 w-full text-center text-sm text-white bg-black/50 py-2 z-20">
-                  {slide.description}
+                <div className="absolute bottom-28 w-full text-center text-lg text-white bg-black/50 py-2 z-20">
+                  {slide.description} 
                 </div>
               </>
             )}

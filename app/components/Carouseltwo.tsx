@@ -11,32 +11,44 @@ const Carouseltwo = () => {
     { 
       srcSmall: '/images/cardesignsmall.png', 
       srcLarge: '/images/cardesign.png', 
-      href: '/page1' 
-    },
-    { 
-      srcSmall: '/images/carhandsmall.png', 
-      srcLarge: '/images/carhand.png', 
-      href: '/page2' 
+      href: '/page1',
+      title: 'Designing the Jewel',
+      description: 'The initial step where we carefully craft the design, bringing imagination to reality.'
     },
     { 
       srcSmall: '/images/carjewelsmall.png', 
       srcLarge: '/images/carjewel.png', 
-      href: '/page3' 
+      href: '/page3',
+      title: 'Selecting the Right Stone',
+      description: 'Choosing the perfect stone is crucial to enhance the beauty of the design.'
+    },
+    { 
+      srcSmall: '/images/carhandsmall.png', 
+      srcLarge: '/images/carhand.png', 
+      href: '/page2',
+      title: 'Precise Hand Crafting',
+      description: 'Expert hands carefully carve out the intricate details of each piece.'
     },
     { 
       srcSmall: '/images/carpolishsmall.png', 
       srcLarge: '/images/carpolish.png', 
-      href: '/page4' 
+      href: '/page4',
+      title: 'Stone Polishing',
+      description: 'Polishing each stone to bring out its true sparkle and brilliance.'
     },
     { 
       srcSmall: '/images/carqualitysmall.png', 
       srcLarge: '/images/carquality.png', 
-      href: '/page5' 
+      href: '/page5',
+      title: 'Quality Checking',
+      description: 'Each piece undergoes strict quality checks to ensure flawless craftsmanship.'
     },
     { 
       srcSmall: '/images/carfinalsmall.png', 
       srcLarge: '/images/carfinal.png', 
-      href: '/page6' 
+      href: '/page6',
+      title: 'Final Delivery',
+      description: 'The completed jewel is packaged with care and delivered to its owner, ready to dazzle.'
     }
   ];
 
@@ -63,28 +75,37 @@ const Carouseltwo = () => {
     };
   }, []);
 
-
   return (
-    <div
-      id="carouseltwo"
-      className="relative w-full h-[100vh] overflow-hidden"
-    >
+    <div id="carouseltwo" className="relative w-full h-auto overflow-hidden">
       <div
-        className="relative w-full h-full flex transition-transform duration-1000 ease-in-out"
+        className="relative w-full h-[calc(100vh-100px)] flex transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full flex-shrink-0 h-full"
-          >
+          <div key={index} className="w-full flex-shrink-0 h-full relative">
             <Link href={slide.href}>
               <img
                 src={isSmallScreen ? slide.srcSmall : slide.srcLarge}
-                className="w-full h-full object-fill" // Resizes image to fill the carousel space
+                className="w-full h-full object-fill"
                 alt={`Slide ${index + 1}`}
               />
             </Link>
+
+            {/* Text overlay for mobile screens */}
+            {isSmallScreen && (
+              <div className="absolute bottom-32 w-full text-center py-2 z-20">
+                <p className="font-bold text-4xl text-black">{slide.title}</p>
+                <p className="mt-1 font-bold text-lg p-2 text-black">{slide.description}</p>
+              </div>
+            )}
+
+            {/* Text overlay for large screens */}
+            {!isSmallScreen && (
+              <div className=" max-w-[50%] absolute top-[50%] -translate-y-[50%] left-10 p-8 text-center text-white z-20"> {/* Added padding for large screens */}
+                <h2 className="text-8xl font-bold mb-5">{slide.title}</h2>
+                <p className="text-2xl font-bold">{slide.description}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -92,17 +113,17 @@ const Carouseltwo = () => {
       {/* Slider controls */}
       <button
         type="button"
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/50 rounded-full shadow-lg cursor-pointer"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 text-black hover:text-white transition-all cursor-pointer"
         onClick={goToPrevSlide}
       >
-        &#8249;
+        <span className="text-8xl font-light">&#8249;</span>
       </button>
       <button
         type="button"
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/50 rounded-full shadow-lg cursor-pointer"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 text-black hover:text-white transition-all cursor-pointer"
         onClick={goToNextSlide}
       >
-        &#8250;
+        <span className="text-8xl font-light">&#8250;</span>
       </button>
     </div>
   );
