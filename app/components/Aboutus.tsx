@@ -20,7 +20,7 @@ function Aboutus() {
             <p className="text-lg lg:text-xl text-[#454545] leading-relaxed whitespace-pre-line mb-6">
               {message}
             </p>
-            <a href="#carouseltwo" className="inline-block bg-[#3F4020] text-white px-5 py-3 rounded-lg font-semibold text-lg transition hover:bg-[#8B734D]">
+            <a href="#carouselthree" className="inline-block bg-[#3F4020] text-white px-5 py-3 rounded-lg font-semibold text-lg transition hover:bg-[#8B734D]">
               View Jewels
             </a>
           </div>

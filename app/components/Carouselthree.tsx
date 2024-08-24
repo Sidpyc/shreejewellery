@@ -9,19 +9,25 @@ const Carouselthree = () => {
 
   const slides = [
     { 
-      srcSmall: '/images/carbanglessmall.png', 
-      srcLarge: '/images/carbangles.jpg', 
-      href: '/page1' 
+      srcSmall: '/images/banglessmall.png', 
+      srcLarge: '/images/carbangles.png', 
+      href: '#carouselthree',
+      title: 'Bangles',
+      description: 'A timeless piece of beauty that completes your traditional look.'
     },
     { 
-      srcSmall: '/images/carearringsmall.png', 
-      srcLarge: '/images/carearring.jpg', 
-      href: '/page2' 
+      srcSmall: '/images/earringssmall.png', 
+      srcLarge: '/images/carearring.png', 
+      href: '#carouselthree',
+      title: 'Earrings',
+      description: 'Elegantly crafted earrings that speak of grace and charm.'
     },
     { 
-      srcSmall: '/images/carnecklacesmall.png', 
-      srcLarge: '/images/carnecklace.jpg', 
-      href: '/page3' 
+      srcSmall: '/images/necklacesmall.png', 
+      srcLarge: '/images/carnecklace.png', 
+      href: '#carouselthree',
+      title: 'Necklaces',
+      description: 'Necklaces designed to radiate luxury and sophistication.'
     }
   ];
 
@@ -48,10 +54,9 @@ const Carouselthree = () => {
     };
   }, []);
 
-
   return (
     <div
-      id="carouseltwo"
+      id="carouselthree"
       className="relative w-full h-[100vh] overflow-hidden"
     >
       <div
@@ -59,10 +64,7 @@ const Carouselthree = () => {
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full flex-shrink-0 h-full"
-          >
+          <div key={index} className="w-full flex-shrink-0 h-full relative">
             <Link href={slide.href}>
               <img
                 src={isSmallScreen ? slide.srcSmall : slide.srcLarge}
@@ -70,6 +72,30 @@ const Carouselthree = () => {
                 alt={`Slide ${index + 1}`}
               />
             </Link>
+
+            {/* Text overlay for mobile screens */}
+            {isSmallScreen && (
+              <>
+              <hr></hr>
+                {/* Item name at the top */}
+                <div className="absolute top-6 mt-20 w-full text-center text-3xl font-bold text-black  z-20">
+                  {slide.title}
+                </div>
+
+                {/* Description at the bottom */}
+                <div className="absolute bottom-4 w-full text-center text-sm text-white bg-black/50 py-2 z-20">
+                  {slide.description}
+                </div>
+              </>
+            )}
+
+            {/* Text overlay for large screens */}
+            {!isSmallScreen && (
+              <div className="absolute left-20 inset-y-0 flex flex-col justify-center pl-10 text-white z-20 w-1/3"> 
+                <h2 className="text-6xl text-black font-bold mb-4">{slide.title}</h2>
+                <p className="text-xl text-black">{slide.description}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -77,17 +103,17 @@ const Carouselthree = () => {
       {/* Slider controls */}
       <button
         type="button"
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/50 rounded-full shadow-lg cursor-pointer"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 text-black hover:text-white transition-all cursor-pointer"
         onClick={goToPrevSlide}
       >
-        &#8249;
+        <span className="text-8xl font-light">&#8249;</span>
       </button>
       <button
         type="button"
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/50 rounded-full shadow-lg cursor-pointer"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 text-black hover:text-white transition-all cursor-pointer"
         onClick={goToNextSlide}
       >
-        &#8250;
+        <span className="text-8xl font-light">&#8250;</span>
       </button>
     </div>
   );
