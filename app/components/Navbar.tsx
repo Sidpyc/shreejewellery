@@ -51,7 +51,7 @@ export default function Navbar() {
         <a href="#about" className="text-lg hover:text-yellow-400 transition duration-300 ease-in-out">
           Our Director
         </a>
-        <a href="#melody" className="text-lg hover:text-yellow-400 transition duration-300 ease-in-out">
+        <a href="#carouselthree" className="text-lg hover:text-yellow-400 transition duration-300 ease-in-out">
           Creative Designs
         </a>
         <a href="#carouseltwo" className="text-lg hover:text-yellow-400 transition duration-300 ease-in-out">
@@ -71,7 +71,7 @@ export default function Navbar() {
           <a href="#about" className="block px-4 py-3 text-lg border-b border-gray-200">
             Our Director
           </a>
-          <a href="#melody" className="block px-4 py-3 text-lg border-b border-gray-200">
+          <a href="#carouselthree" className="block px-4 py-3 text-lg border-b border-gray-200">
             Creative Designs
           </a>
           <a href="#carouseltwo" className="block px-4 py-3 text-lg border-b border-gray-200">
